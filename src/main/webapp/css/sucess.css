@@ -1,21 +1,5 @@
 @charset "ISO-8859-1";
 
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: monospace;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #0077B6;
-}
-
 .info-container {
     display: flex;
     flex-direction: column;
@@ -56,23 +40,6 @@ ul {
 li {
     font-size: 17px;
     padding: 5px;
-}
-
-.button {
-	padding: 15px;
-    background-color: #3d13d6;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 35px;
-}
-
-.button:hover {
-	background-color: #4023a8;
 }
 
 .bold {
