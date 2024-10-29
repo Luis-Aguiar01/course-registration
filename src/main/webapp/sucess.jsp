@@ -1,3 +1,4 @@
+<%@page import="jakarta.websocket.SendResult"%>
 <%@page import="br.edu.ifsp.dsw1.ex2.factory.CourseFactoryImp"%>
 <%@page import="br.edu.ifsp.dsw1.ex2.factory.CourseFactory"%>
 <%@page import="br.edu.ifsp.dsw1.ex2.entities.Aluno"%>
@@ -48,32 +49,39 @@
     <title>Cadastro Concluído!</title>
 </head>
 <body>
-    <div class="info-container">
-        <h1 class="title">Cadastro Concluído com Sucesso!</h1>
+	<% if (aluno != null) { %>
 
-        <h2>Verifique os dados da sua inscrição abaixo:</h2>
-        
-        <p><span>Prontuário:</span> <%= aluno.getProntuario() %> </p>
-        <p><span>Nome Completo:</span> <%= aluno.getNome() %> </p>
-        
-        <% for (var email : aluno.getEmails()) { 
-        	if (email.contains("@aluno.ifsp.edu.br")) {%>
-        		<p class="bold">E-mail: <%= email %> </p>
-         <% } else { %>
-        	 	<p><span>E-mail:</span> <%= email %> </p>
-         <% } %>
-       <% } %>
-        	
-        <p><span>Cursos Inscritos:</span></p>
-        <ul>
-        	<% for (var curso : aluno.getCursos()) {%>
-            	<li><%=curso%></li>
-            <% } %>
-        </ul>
-    </div>
+	    <div class="info-container">
+	        <h1 class="title">Cadastro Concluído com Sucesso!</h1>
+	
+	        <h2>Verifique os dados da sua inscrição abaixo:</h2>
+	        
+	        <p><span>Prontuário:</span> <%= aluno.getProntuario() %> </p>
+	        <p><span>Nome Completo:</span> <%= aluno.getNome() %> </p>
+	        
+	        <% for (var email : aluno.getEmails()) { 
+	        	if (email.contains("@aluno.ifsp.edu.br")) {%>
+	        		<p class="bold">E-mail: <%= email %> </p>
+	         <% } else { %>
+	        	 	<p><span>E-mail:</span> <%= email %> </p>
+	         <% } %>
+	       <% } %>
+	        	
+	        <p><span>Cursos Inscritos:</span></p>
+	        <ul>
+	        	<% for (var curso : aluno.getCursos()) {%>
+	            	<li><%=curso%></li>
+	            <% } %>
+	        </ul>
+	    </div>
+	    
+	    <a href="form.jsp">
+	        <button class="button">Voltar</button>
+	    </a>
     
-    <a href="form.jsp">
-        <button class="button">Voltar</button>
-    </a>
+    <% } else { 
+    		response.sendRedirect("http://localhost:8080/exercicios-fixacao-2/form.jsp");
+       }
+    %>
 </body>
 </html>
